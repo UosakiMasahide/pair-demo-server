@@ -19,6 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('api', ApiController::class)
-    ->only(['index', 'store', 'show', 'update'])
-    ->names('api');
+Route::get('/index1', [ApiController::class, 'index1']);
+Route::get('/index2', [ApiController::class, 'index2']);
+Route::get('/index3', [ApiController::class, 'index3']);

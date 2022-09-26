@@ -2,29 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use Error;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
 {
-
-
-    public function index(Request $reqest)
+    public function index1()
     {
-        dd($reqest, '簡単なAPIのテスト index');
+        return response()->json(
+            [
+                'message' => '正常に処理が完了しました。',
+            ],
+            200
+        );
     }
 
-    public function store(Request $reqest)
+    public function index2()
     {
-        dd($reqest, '簡単なAPIのテスト store');
+        sleep(3);
+        return response()->json(
+            [
+                'text1' => 'おはよう',
+                'text2' => 'こんにちは',
+                'text3' => 'こんばんは',
+                'text4' => 'さようなら',
+            ],
+            200
+        );
     }
 
-    public function show(Request $reqest)
+    public function index3()
     {
-        dd($reqest, '簡単なAPIのテスト show');
-    }
-
-    public function update(Request $reqest)
-    {
-        dd($reqest, '簡単なAPIのテスト update');
+        // throw new \Exception('error');
+        return response()->json(
+            [
+                'message' => '正常に処理が完了しませんでした。',
+            ],
+            422
+        );
     }
 }
